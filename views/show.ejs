@@ -1,0 +1,37 @@
+<%-include("partials/header")%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Curious Camper</p>
+            <div class="list-group-item">
+                <li class="list-group-item active">Info 1</li>
+                <li class="list-group-item">Info 2</li>
+                <li class="list-group-item">Info 3</li>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="thumbnail">
+                <div class="ui card">
+                <img class="ui fluid image" src="<%=c.image%>">
+                <div class="caption-full">
+                    <h4 align="right">Rs.<%= c.price %>/Night</h4>
+                    <h4><a href="#"><%=c.name%></a></h4>
+                    <p><%=c.description %></p>
+                    <p><em>Created By :<%=c.author.username%></em></p>
+                    <% if(currentuser && c.author.id.equals(currentuser.id) || currentuser && currentuser.isadmin) {%>
+                    <a class="btn btn-warning" href="/campgrounds/<%=c.id%>/edit">Edit</a>
+                    
+                    <form style="display:inline" action="/campgrounds/<%=c.id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                    <% } %>
+                    </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%-include("partials/footer")%>

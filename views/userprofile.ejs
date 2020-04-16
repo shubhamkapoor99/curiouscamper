@@ -1,0 +1,18 @@
+<%- include("partials/header")%>
+
+<div class="col-md-8">
+    <h3>Username: <%=theuser.username%></h3>
+    <h4>Name: <%=theuser.firstname%></h4>
+    <h4>Email: <%= theuser.email %></h4>
+</div>
+<div class="col-md-8">
+    <h3><%=theuser.username%>'s Campgrounds:</h3>
+    <ul>
+<%c.forEach(function(c){%>
+    
+<li><a href="/campgrounds/<%=c.id%>"><%= c.name %></a></li>
+<% }) %>
+</ul>
+</div>
+
+<%- include("partials/footer")%>
